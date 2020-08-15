@@ -14,7 +14,7 @@ export class PaintService {
   private canvas: HTMLCanvasElement = null;
   private ctx: CanvasRenderingContext2D;
 
-  public initialize(mountPoint: HTMLElement) {
+  public initialize(mountPoint: HTMLElement): any {
     this.canvas = mountPoint.querySelector('canvas');
     this.ctx = this.canvas.getContext('2d');
     this.canvas.width = mountPoint.offsetWidth;

@@ -20,7 +20,7 @@ export class PaintComponent implements OnInit, AfterViewInit {
     this.startPainting();
   }
 
-  private putImage(): void{
+  public putImage(): void{
     console.log(this.canvas.toDataURL());
   }
 
