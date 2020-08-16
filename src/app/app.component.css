@@ -5,4 +5,6 @@ p {
   display: block;
   height: 70vh;
   width: 70vh;
+  text-align: center;
+  margin: 0 auto;
 }
