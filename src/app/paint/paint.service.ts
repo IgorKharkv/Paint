@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 let infiniteX = Infinity;
 let infiniteY = Infinity;
@@ -9,7 +11,9 @@ let colorHue = 0;
 })
 export class PaintService {
 
-  constructor() { }
+  url = 'http://127.0.0.1:5000/guess';
+
+  constructor(private http: HttpClient) { }
 
   private canvas: HTMLCanvasElement = null;
   private ctx: CanvasRenderingContext2D;
@@ -35,5 +39,9 @@ export class PaintService {
     infiniteX = clientX;
     infiniteY = clientY;
     colorHue++;
+  }
+
+  public guessNumber(image: string): Observable<number> {
+    return this.http.post<number>(this.url, image);
   }
 }

@@ -12,7 +12,9 @@ export class PaintComponent implements OnInit, AfterViewInit {
 
   canvas: HTMLCanvasElement;
 
-  constructor(private paintSvc: PaintService, private elRef: ElementRef) { }
+  constructor(private paintSvc: PaintService,
+              private elRef: ElementRef,
+              private paintService: PaintService) { }
 
   ngOnInit(): void {
     console.log(this.elRef);
@@ -22,6 +24,10 @@ export class PaintComponent implements OnInit, AfterViewInit {
 
   public putImage(): void{
     console.log(this.canvas.toDataURL());
+    this.paintService.guessNumber(this.canvas.toDataURL()).subscribe(value =>
+      console.log(value),
+      error => console.log(error)
+    );
   }
 
   private startPainting(): any{
