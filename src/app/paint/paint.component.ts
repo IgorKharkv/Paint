@@ -25,7 +25,7 @@ export class PaintComponent implements OnInit, AfterViewInit {
   public putImage(): void{
     console.log(this.canvas.toDataURL());
     this.paintService.guessNumber(this.canvas.toDataURL()).subscribe(value =>
-      console.log(value),
+      alert(value),
       error => console.log(error)
     );
   }
